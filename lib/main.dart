@@ -94,7 +94,7 @@ class _MyHomePageState extends State<MyHomePage>
               '$_counter',
               style: Theme.of(context).textTheme.display1,
             ),
-            AnimatedButton(text: "Hello", icon: Icons.add_shopping_cart, color: Colors.pinkAccent, duration: Duration(milliseconds: 300), onTap: () => print('tap'),)
+            AnimatedButton(text: "Hello", icon: Icons.add_shopping_cart, color: Colors.pinkAccent, duration: Duration(milliseconds: 300), isPressed: false, onTap: () => print('tap'),)
           ],
         ),
       ),

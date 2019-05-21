@@ -26,6 +26,7 @@ class _BottomNavigationBarState extends State<BottomNavigationBar> {
 
   @override
   Widget build(BuildContext context) {
+    print("rebuild bottom nav");
     return Material(
       elevation: 8,
       child: Container(
@@ -40,12 +41,14 @@ class _BottomNavigationBarState extends State<BottomNavigationBar> {
   List<Widget> _buildButtons() {
     List<Widget> _buttonWidgets = [];
     for (var i=0; i<widget.buttons.length; i++) {
+      print("add button " + i.toString() + " isPressed " + (i==selectedIndex? true: false).toString());
       _buttonWidgets.add(
         AnimatedButton(
           color: widget.buttons[i]['color'],
           duration: Duration(milliseconds: 300),
           icon: widget.buttons[i]['icon'],
           text: widget.buttons[i]['text'],
+          isPressed: (i==selectedIndex? true: false),
           onTap: () => onTap(i),
         )
       );
@@ -56,6 +59,7 @@ class _BottomNavigationBarState extends State<BottomNavigationBar> {
   onTap(int i) {
     setState(() {
       selectedIndex = i;
+      print("selectedIndex " + selectedIndex.toString());
     });
   }
 }

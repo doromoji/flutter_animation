@@ -5,10 +5,11 @@ class AnimatedButton extends StatefulWidget {
   var icon = Icons.add;
   Color color = Colors.pinkAccent;
   var duration = Duration(seconds: 1);
+  var isPressed = false;
 
   Function onTap;
 
-  AnimatedButton({this.text, this.icon, this.color, this.duration, this.onTap});
+  AnimatedButton({this.text, this.icon, this.color, this.duration, this.isPressed, this.onTap});
 
   @override
   _AnimatedButtonState createState() {
@@ -21,7 +22,8 @@ class _AnimatedButtonState extends State<AnimatedButton> with SingleTickerProvid
 
   @override
   Widget build(BuildContext context) {
-    return _buildAnimated();
+    print("rebuild " + widget.text);
+    return _buildNotAnimated();
   }
 
   Widget _buildAnimated() {
@@ -35,6 +37,8 @@ class _AnimatedButtonState extends State<AnimatedButton> with SingleTickerProvid
   }
 
   Row _buildNotAnimated() {
+    print("**" + widget.text + " " + widget.isPressed.toString() + "**");
+    isPressed = widget.isPressed;
     return Row(
       children: <Widget>[
         InkWell(
